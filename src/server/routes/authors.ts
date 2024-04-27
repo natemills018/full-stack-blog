@@ -12,12 +12,12 @@ const router = Router();
 router.get('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
-        const clients = await db.clients.getOne(id);
-        const client = clients[0];
-        if(! client) {
+        const [author] = await db.authors.getOne(id);
+       
+        if(! author) {
             return res.status(404).json({ message: 'No User was found with this id'})
         }
-        res.json(client);
+        res.json(author);
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Internal Server Error', error})
@@ -26,8 +26,8 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const clients = await db.clients.getAll();
-        res.json(clients);
+        const author = await db.authors.getAll();
+        res.json(author);
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Internal Server Error', error})
@@ -36,9 +36,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newClient = req.body;
-        const result = await db.tweets.insert(newClient.handle, newClient.email);
-        res.json({ message: 'Tweet Created', id: result.insertId});
+        const newAuthor = req.body;
+        const result = await db.authors.insert(newAuthor.name, newAuthor.email);
+        res.json({ message: 'New Author added', id: result.insertId});
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Internal Server Error', error})

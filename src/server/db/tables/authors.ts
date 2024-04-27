@@ -21,6 +21,6 @@ export function updateBlogPost(id: number, name: string) {
     return ModifyQuery<IAuthorsRow>('UPDATE authors SET name =? WHERE id =?;',[name])
 }
 
-export function insertBlogPost(name: string, email: string) {
+export function insert(name: string, email: string) {
     return ModifyQuery('INSERT INTO authors (name,email) VALUE (?,?);',[name, email])
 }
