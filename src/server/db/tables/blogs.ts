@@ -10,7 +10,7 @@ export interface IBlogsRow extends RowDataPacket {
 
 
 export function getAll() {
-    return SelectQuery<IBlogsRow>('SELECT * FROM blogs JOIN authors ON authors.id = blogs.author.id;');
+    return SelectQuery<IBlogsRow>('SELECT * FROM blogs;');
 }
 
 export function getOne(id: number) {
@@ -21,6 +21,6 @@ export function updateBlogPost(id: number, content: string) {
     return ModifyQuery<IBlogsRow>('UPDATE blogs SET content =? WHERE id =?;',[content])
 }
 
-export function insertBlogPost(title: string, content: string) {
+export function insert(title: string, content: string) {
     return ModifyQuery('INSERT INTO blogs (title,content) VALUE (?,?);',[title,content])
 }

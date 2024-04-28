@@ -3,9 +3,7 @@ import type { RowDataPacket } from "mysql2";
 
 export interface ITagsRow extends RowDataPacket {
         id: number,
-        title: string,
-        content: string,
-        author_id: number
+        name: string
 }
 
 
@@ -18,9 +16,9 @@ export function getOne(id: number) {
 }
 
 export function updateTag(id: number, name: string) {
-    return ModifyQuery<ITagsRow>('UPDATE tags SET name =? WHERE id =?;',[name])
+    return ModifyQuery<ITagsRow>('UPDATE tags SET name =? WHERE id =?;',[id, name])
 }
 
-export function insertBlogPost(name: string) {
+export function insert(name: string) {
     return ModifyQuery('INSERT INTO tags (name) VALUE (?);',[name])
 }
