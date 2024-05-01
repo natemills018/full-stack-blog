@@ -10,6 +10,7 @@ export interface IAuthorsRow {
     id: number;
     name: string;
     email: string;
+    phonenumbe: string;
 }
 
 

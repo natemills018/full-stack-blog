@@ -8,7 +8,7 @@ const Home = (props: HomeProps) => {
         <main className='container mt-5'>
             <section className='row justify-content-center'>
                 <h1 className='text-center text-primary'>
-                    Welcome to CRUD
+                    Banjo's Blogs
                 </h1>
                 <div className='container d-flex justify-content-center align-items-center'>
                     

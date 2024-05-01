@@ -1,15 +1,7 @@
-import React from "react";
-// import {
-//     Nav,
-//     NavLink,
-//     Bars,
-//     NavMenu,
-//     NavBtn,
-//     NavBtnLink,
-// } from "/NavbarElements";
-
+// import React from "react";
+// import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink,} from './Elements';
 // interface NavBarProps {
-
+    
 // }
 
 // const Navbar = (props: NavBarProps) => {

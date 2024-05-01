@@ -14,7 +14,7 @@ export function getAll() {
 }
 
 export function getOne(id: number) {
-    return SelectQuery<IAuthorsRow>('SELECT * FROM authors WHERE id =?;,'[id])
+    return SelectQuery<IAuthorsRow>('SELECT * FROM authors WHERE id =?;',[id])
 }
 
 export function updateBlogPost(id: number, name: string) {
