@@ -15,7 +15,7 @@ router.get('/:id', async (req, res) => {
         const [tag] = await db.tags.getOne(id);
        
         if(! tag) {
-            return res.status(404).json({ message: 'No User was found with this id'})
+            return res.status(404).json({ message: 'No Tag was found with this id'})
         }
         res.json(tag);
     } catch (error) {
@@ -33,6 +33,9 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error', error})
     }
 })
+
+
+// Update the post and the put requests for this route, according the blogs route
 
 router.post('/', async (req, res) => {
     try {

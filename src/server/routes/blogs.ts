@@ -34,10 +34,27 @@ router.get('/', async (req, res) => {
     }
 })
 
+
+//When you're updating existing data, you don't want to use the insert keyword because you aren't actually inserting any NEW elements
+
+
+
+router.put('/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id, 10);
+        const updateBlogPost = req.body;
+        await db.blogs.updateBlogPost(id, updateBlogPost);
+        res.json({ message: 'Blog Content Updated', id });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Internal Server Error', error})
+    }
+})
+
 router.post('/', async (req, res) => {
     try {
         const newBlog = req.body;
-        const result = await db.blogs.insert(newBlog.title, newBlog.content);
+        const result = await db.blogs.insert(newBlog.title, newBlog.content, 1);
         res.json({ message: 'New Author added', id: result.insertId});
     } catch (error) {
         console.log(error);
@@ -46,3 +63,8 @@ router.post('/', async (req, res) => {
 })
 
 export default router;
+
+
+
+
+// COMPLETED

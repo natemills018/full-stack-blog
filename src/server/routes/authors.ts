@@ -34,6 +34,9 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Update the post and the put requests for this route, according the blogs route
+
+
 router.post('/', async (req, res) => {
     try {
         const newAuthor = req.body;
