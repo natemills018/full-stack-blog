@@ -17,7 +17,7 @@ export function getAll() {
 }
 
 export function getOne(id: number) {
-    return SelectQuery<IBlogsRow>('SELECT * FROM blogs WHERE id =?;,'[id])
+    return SelectQuery<IBlogsRow>('SELECT * FROM blogs WHERE id =?;',[id])
 }
 
 

@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from './views/Home';
+import Create from './views/Create';
+// import NavBar from './components/NavBar';
+
+
 
 interface AppProps {}
 
 const App = (props: AppProps) => {
-	const [data, setData] = useState('');
-
-	useEffect(() => {
-		fetch('http://localhost:3000/api/hello')
-			.then(res => res.json())
-			.then(data => setData(data.message))
-			.catch(e => console.log('[fetch erorr]', e));
-	}, []);
 
 	return (
-		<div className="mx-auto mt-5 w-25">
-			<div className="alert alert-info text-center">Hello {data}</div>
+		<BrowserRouter>
+		{/* <NavBar/> */}
+		<div className='px-5 py-2'>
+
 		</div>
+
+		<Routes>
+			<Route path='/' element={<Home/>}></Route>
+		</Routes>
+		</BrowserRouter>
+
+
 	);
 };
 
+// Inside of the initial div is where I plan to add stlying to the NavBar
+
+
+
+
+
+
 export default App;
+
