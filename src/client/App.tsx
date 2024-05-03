@@ -4,6 +4,7 @@ import Home from './views/Home';
 import Create from './views/Create';
 import Authors from './views/Authors';
 import Author from './components/authorDetails';
+import Blogs from './views/Blogs';
 // import NavBar from './components/NavBar';
 
 
@@ -27,10 +28,10 @@ const App = (props: AppProps) => {
 		<Routes>
 			<Route path='/' element={<Home/>} />
 			<Route path='/authors' element={<Authors/>} />
-			{/* <Route path='/blogs' element={<Blogs/>}/> */}
+			<Route path='/blogs' element={<Blogs/>}/>
 			<Route path='/authors/:id'element={<Author/>}/>
 
-			
+
 		</Routes>
 		</BrowserRouter>
 

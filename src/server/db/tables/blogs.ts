@@ -13,7 +13,7 @@ export interface IBlogsRow extends RowDataPacket {
 
 
 export function getAll() {
-    return SelectQuery<IBlogsRow>('SELECT * FROM blogs JOIN authors ON blogs.author_id = authors.id;');
+    return SelectQuery<IBlogsRow>('SELECT authors.name, blogs.content, blogs.title, blogs.author_id FROM blogs JOIN authors ON blogs.author_id = authors.id;');
 }
 
 export function getOne(id: number) {

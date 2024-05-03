@@ -21,11 +21,11 @@ const Authors = (props: AuthorsProps) => {
                 <h1 className='col-12 col-md-6'> 
                     <ul className='list-group'>
                         {list.map(author => (
-                            <li className='list-group-item d-flex justify-content-between align-items center'
+                            <li className='list-group-item d-flex bg-warning justify-content-between align-items center'
                             key={`author-${author.id}`}>
                                 <h2>{author.name}</h2>
 
-                                <h5 className='text-primary pt-1'>{author.email}</h5>
+                                <h6 className='text-primary pt-2'>{author.email}</h6>
 
                                 <Link to={`/authors/${author.id}`} className='btn btn-secondary'> Details</Link>
                             </li>

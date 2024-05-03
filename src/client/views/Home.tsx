@@ -1,4 +1,7 @@
 import React from 'react';
+import Authors from './Authors';
+import Blogs from './Blogs';
+
 interface HomeProps {
 
 }
@@ -10,8 +13,9 @@ const Home = (props: HomeProps) => {
                 <h1 className='text-center text-primary'>
                     Banjo's Blogs
                 </h1>
-                <div className='container d-flex justify-content-center align-items-center'>
-                    
+                <div className='container'>
+                    <div><Authors/></div>
+                    <div><Blogs/></div>
                 </div>
             </section>
         </main>
