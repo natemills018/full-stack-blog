@@ -12,10 +12,10 @@ const router = Router();
 router.get('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
-        const [blog] = await db.blogs.getOne(id);
+        const blog = await db.blogs.getOne(id);
        
-        if(! blog) {
-            return res.status(404).json({ message: 'No User was found with this id'})
+        if(!blog) {
+            return res.status(404).json({ message: 'No Blog was found with this id'})
         }
         res.json(blog);
     } catch (error) {

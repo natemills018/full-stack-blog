@@ -13,8 +13,15 @@ export interface IBlogsRow extends RowDataPacket {
 
 
 export function getAll() {
-    return SelectQuery<IBlogsRow>('SELECT authors.name, blogs.content, blogs.title, blogs.author_id FROM blogs JOIN authors ON blogs.author_id = authors.id;');
+    return SelectQuery<IBlogsRow>('SELECT * FROM blogs;');
 }
+
+
+// Note to self changing the query of the getAll function actually allowed me to see the id property!
+
+// Does the export function give you access to different tables and columns where exporting it to the front end?
+
+
 
 export function getOne(id: number) {
     return SelectQuery<IBlogsRow>('SELECT * FROM blogs WHERE id =?;',[id])

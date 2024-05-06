@@ -16,3 +16,6 @@ const Create = (props: CreateProps) => {
 }
 
 export default Create;
+
+
+// Here I'm planning to build a component for creation

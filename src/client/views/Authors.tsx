@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import type { IAuthorsRow } from '../types';
+
 interface AuthorsProps {
 
 }
@@ -14,6 +15,8 @@ const Authors = (props: AuthorsProps) => {
         .then(list => setList(list));
     }, [])
 
+
+    // console.log(list);
 
     return (
         <main className='container mt-5'>

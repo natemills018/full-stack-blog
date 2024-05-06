@@ -5,6 +5,7 @@ import Create from './views/Create';
 import Authors from './views/Authors';
 import Author from './components/authorDetails';
 import Blogs from './views/Blogs';
+import Blog from './components/blogDetails';
 // import NavBar from './components/NavBar';
 
 
@@ -17,6 +18,7 @@ const App = (props: AppProps) => {
 		<BrowserRouter>
 		{/* <NavBar/> */}
 		<div className='px-5 py-2'>
+			<div className='m-3 fw-bold '>Banjo & Kazooie's Blogs</div>
 
 			<Link to= '/' className='btn btn-outline btn-primary m-3'>Home</Link>
 			<Link to= '/authors' className='btn btn-outline btn-light m-3'>Authors</Link>
@@ -27,9 +29,11 @@ const App = (props: AppProps) => {
 
 		<Routes>
 			<Route path='/' element={<Home/>} />
+			<Route path='/authors/:id'element={<Author/>}/>
+			<Route path='/blogs/:id'element={<Blog/>}/>
 			<Route path='/authors' element={<Authors/>} />
 			<Route path='/blogs' element={<Blogs/>}/>
-			<Route path='/authors/:id'element={<Author/>}/>
+			
 
 
 		</Routes>

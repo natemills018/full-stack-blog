@@ -15,13 +15,15 @@ const Blogs = (props: BlogsProps) => {
             .then(list => setList(list));
     }, [])
 
+    // console.log(list);
+
 
     return (
         <main className='container'>
             <div className='row justify-content-center mt-5'>
                     {list.map((blog) => (
-                        <div className="col-md-4 m-3 card card-shadow bg-warning" key={`div-${blog.id}`}>
-                            <h5 className="card-title mt-2 text-center">
+                        <div className="col-md-4 m-3 card card-shadow bg-warning" key={`blog-${blog.id}`}>
+                            <h5 className="card-title mt-2 text-center"> 
                                 {blog.title}
                             </h5>
                             <div className='card-body mx-1'>
