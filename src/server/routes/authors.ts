@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
         const id = parseInt(req.params.id, 10);
         const [author] = await db.authors.getOne(id);
        
-        if(! author) {
+        if(!author) {
             return res.status(404).json({ message: 'No User was found with this id'})
         }
         res.json(author);

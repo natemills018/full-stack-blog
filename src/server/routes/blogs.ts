@@ -43,6 +43,7 @@ router.put('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
         const updateBlogPost = req.body;
+        console.log({ id, blogData: updateBlogPost })
         await db.blogs.updateBlogPost(id, updateBlogPost);
         res.json({ message: 'Blog Content Updated', id });
     } catch (error) {

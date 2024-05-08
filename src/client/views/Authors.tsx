@@ -21,6 +21,8 @@ const Authors = (props: AuthorsProps) => {
     return (
         <main className='container mt-5'>
             <section className='row justify-content-center'>
+                {/* <h1 className='d-flex justify-content-center align-items-center mb-5'> Author's Enpoint
+                </h1> */}
                 <h1 className='col-12 col-md-6'> 
                     <ul className='list-group'>
                         {list.map(author => (

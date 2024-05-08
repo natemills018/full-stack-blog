@@ -30,7 +30,7 @@ export function getOne(id: number) {
 
 // By using an object to pass through the parameter, you're able to dynamically
 export function updateBlogPost(id: number, updateContent: string) {
-    return ModifyQuery<IBlogsRow>('UPDATE blogs SET ? content =? WHERE id =?;',[updateContent, id])
+    return ModifyQuery<IBlogsRow>('UPDATE blogs SET content =? WHERE id =?;',[updateContent, id])
 }
 
 export function insert(title: string, content: string, author_id: number) {

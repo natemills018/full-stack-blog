@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { IAuthorsRow } from '../types';
-
+import { GET } from '../services/fetchData';
 
 interface AuthorProps {
 
@@ -18,6 +18,10 @@ const Author = (props: AuthorProps) => {
             .catch(e => alert(e.message))
     }, [id])
 
+
+    // useEffect(() => {
+    //     GET(`/api/authors/${id}`).then(data => setData(data));
+    // })
     return (
         <main className='container mt-5'>
             <section className='row justify-content-center'>

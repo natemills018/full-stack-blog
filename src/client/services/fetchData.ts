@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 const URL_PREFACE = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 
 
-async function fetchieHelper(url: string, method: string = "GET", rawData?: any) {
+async function fetchieHelper<T = any>(url: string, method: string = "GET", rawData?: any): Promise<any> {
     const headers: HeadersInit = {}
     const options: RequestInit = {
         headers,
@@ -27,7 +27,9 @@ async function fetchieHelper(url: string, method: string = "GET", rawData?: any)
                         text: data.message,
                     })
                 }
-            }    
+            } 
+            
+            return data as T;
             
         } catch(error) {
             console.error(error)

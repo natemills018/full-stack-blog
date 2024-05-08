@@ -4,18 +4,22 @@ import type { IBlogsRow } from '../types';
 import type { IAuthorsRow } from '../types';
 import type { ITagsRow } from '../types';
 import { PUT } from '../services/fetchData';
+import  EditBlog from '../components/editBlog';
 
-interface CreateProps {
+
+interface UpdateProps {
     
 }
 
-const Create = (props: CreateProps) => {
+const Update = (props: UpdateProps) => {
     return(
-        <div>You've found the create page</div>
+        <div>You've found the Update page
+            <div><EditBlog/></div>
+        </div>
     )
 }
 
-export default Create;
+export default Update;
 
 
 // Here I'm planning to build a component for creation

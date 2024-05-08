@@ -21,6 +21,8 @@ const Blogs = (props: BlogsProps) => {
     return (
         <main className='container'>
             <div className='row justify-content-center mt-5'>
+            {/* <h1 className='d-flex justify-content-center align-items-center mb-5'> Blog's Enpoint
+                </h1> */}
                     {list.map((blog) => (
                         <div className="col-md-4 m-3 card card-shadow bg-warning" key={`blog-${blog.id}`}>
                             <h5 className="card-title mt-2 text-center"> 
