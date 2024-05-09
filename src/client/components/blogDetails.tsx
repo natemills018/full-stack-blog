@@ -34,8 +34,9 @@ const Blog = (props: BlogProps) => {
                             <h2 className='card-title d-flex justify-content-center align-items-center'> Blog Details #{id}</h2>
                             <p className='card-title  d-flex justify-content-center text-dark align-items-center'><span className='text-decoration-underline'>{data?.title}</span> </p>
                             <p className='card-text'>{data?.content}</p>
-                            <EditBlog />
-                            <Link to='/blogs' className='btn btn-outline btn-primary'>Go Back to Blogs</Link>
+                            
+                            <Link to='/updateblog' className='btn btn-outline btn-success'>Click here to edit your Blog</Link>
+                            <Link to='/blogs' className='btn btn-outline btn-primary mx-4'>Go Back to Blogs</Link>
                         </div>
                     </div>
                 </div>

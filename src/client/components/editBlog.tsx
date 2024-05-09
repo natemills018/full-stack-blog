@@ -10,27 +10,38 @@ interface EditBlogProps {
 
 const EditBlog = (props: EditBlogProps) => {
     const nav = useNavigate();
-    const {id} = useParams();
+    const { id } = useParams();
     const [content, setContent] = useState('');
 
     useEffect(() => {
         GET(`/api/blogs/${id}`).then(blog => setContent(blog.content));
-    }, [id])
+    }, [])
 
     const updateBlog = () => {
-        PUT(`/api/blogs/${id}`, {content})
-        .then(data => { 
-            console.log(data)
-            nav(`/blogs/${id}`);
-        })
+        PUT(`/api/blogs/${id}`, { content })
+            .then(data => {
+                console.log(content)
+                nav(`/blogs/${id}`);
+            })
     }
 
     return (
-        <div>
-            <h1>You can update your blog here!#{id}</h1>
-            <input value={content} onChange={e => setContent(e.target.value)} />
-            <button onClick={updateBlog}>Click to update</button>
-        </div>
+        <main className='container mt-5'>
+            <section className='row justify-content-center'>
+                <div className='col-12 col-md-6'>
+                    <div className='card shadow'>
+                        <div className='card-body'>
+                            <div>
+                                <h1>You can update your blog here!</h1>
+                                <input value={content} onChange={e => setContent(e.target.value)} />
+                                <button className='rounded mx-4' onClick={updateBlog}>Click to update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
     )
 
 }

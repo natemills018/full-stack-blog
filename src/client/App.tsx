@@ -7,6 +7,8 @@ import Author from './components/authorDetails';
 import Blogs from './views/Blogs';
 import Blog from './components/blogDetails';
 import Update from './views/Update';
+import EditBlog from './components/editBlog';
+import Add from './components/addBlog';
 // import NavBar from './components/NavBar';
 
 
@@ -27,8 +29,8 @@ const App = (props: AppProps) => {
 				<Link to='/' className='btn btn-outline btn-primary m-3'>Home</Link>
 				<Link to='/authors' className='btn btn-outline btn-light m-3'>Authors</Link>
 				<Link to='/blogs' className='btn btn-outline btn-secondary m-3'>Blogs</Link>
-				<Link to='/update' className='btn btn-outline btn-success m-3'>Update</Link>
-				<Link to='/tags' className='btn btn-outline btn-danger m-3'>Tags</Link>
+				{/* <Link to='/update' className='btn btn-outline btn-success m-3'>Update Blog</Link> */}
+				<Link to='/blogs/new' className='btn btn-outline btn-danger m-3'>Add Blog</Link>
 			</div>
 
 			<Routes>
@@ -37,7 +39,9 @@ const App = (props: AppProps) => {
 				<Route path='/blogs/:id' element={<Blog />} />
 				<Route path='/authors' element={<Authors />} />
 				<Route path='/blogs' element={<Blogs />} />
-				<Route path='/update' element={<Update />} />
+				<Route path='/updateblog' element={<EditBlog />} />
+				<Route path='/blogs/new' element={<Add />} />
+
 
 
 
