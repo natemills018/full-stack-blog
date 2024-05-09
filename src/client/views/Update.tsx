@@ -14,7 +14,7 @@ interface UpdateProps {
 const Update = (props: UpdateProps) => {
     return(
         <div>You've found the Update page
-            <div><EditBlog/></div>
+            
         </div>
     )
 }
