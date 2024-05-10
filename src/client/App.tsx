@@ -9,6 +9,7 @@ import Blog from './components/blogDetails';
 import Update from './views/Update';
 import EditBlog from './components/editBlog';
 import Add from './components/addBlog';
+import Contact from './views/Contact';
 // import NavBar from './components/NavBar';
 
 
@@ -30,6 +31,7 @@ const App = (props: AppProps) => {
 				<Link to='/authors' className='btn btn-outline btn-light m-3'>Authors</Link>
 				<Link to='/blogs' className='btn btn-outline btn-secondary m-3'>Blogs</Link>
 				{/* <Link to='/update' className='btn btn-outline btn-success m-3'>Update Blog</Link> */}
+				<Link to='/contact' className='btn btn-outline btn-secondary m-3'>Contact Us!</Link>
 				<Link to='/blogs/new' className='btn btn-outline btn-danger m-3'>Add Blog</Link>
 			</div>
 
@@ -41,6 +43,7 @@ const App = (props: AppProps) => {
 				<Route path='/blogs' element={<Blogs />} />
 				<Route path='/updateblog' element={<EditBlog />} />
 				<Route path='/blogs/new' element={<Add />} />
+				<Route path='/contact' element={<Contact />} />
 
 
 

@@ -10,7 +10,7 @@ const Contact = (props: ContactProps) => {
         message: ''
     })
 
-    //Implicit Es6 return is being used in this example, ...pre.. is requesting the variable to maintain the same properties, then we are telling it to find the name of the text area, and the value of the text that is being entered.
+    //Implicit Es6 return is being used in this example, ...pre is requesting the variable to maintain the same properties, then we are telling it to find the name of the text area, and the value of the text that is being entered.
     const handleChanges = (e: React.ChangeEvent<HTMLInputElement & HTMLTextAreaElement>) => {
         setData(pre => ({ ...pre, [e.target.name]: e.target.value }))
     }
@@ -44,12 +44,12 @@ const Contact = (props: ContactProps) => {
             <section className='row justify-content-center'>
                 <div className='col-12 col-md-6'>
                     <div className='card shadow'>
-                        <div className='card-body'>
+                        <div className='card-body bg-primary'>
                             <form>
-                                <input className="form-control" value={data.from} onChange={handleChanges} />
-                                <input className="form-control" value={data.subject} onChange={handleChanges} />
-                                <textarea name="message" rows={5} className="form-control" value={data.message} onChange={handleChanges}></textarea>                                
-                                <button className='btn btn-outline btn-success' onClick={handleContactSubmit}>Contact Me</button>
+                                <input className="form-control mt-1" name='from' value={data.from} onChange={handleChanges} />
+                                <input className="form-control mt-1" name='subject'value={data.subject} onChange={handleChanges} />
+                                <textarea name="message" rows={5} className="form-control mt-1" value={data.message} onChange={handleChanges}></textarea>                                
+                                <button className='btn btn-outline btn-success mt-1' onClick={handleContactSubmit}>Contact Me</button>
                             </form>
                         </div>
                     </div>

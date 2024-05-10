@@ -21,10 +21,12 @@ router.post('/', async (req, res) => {
             from: newEmail.from,
             html: `<h1 style="color: #0091ea;>${newEmail.message}</h1>`
         })
-
+        res.json(result);
 
     } catch (error) {
         console.log(error)
         res.status(500).json({msg: 'Oops something happened', error})
     }
 })
+
+export default router;
