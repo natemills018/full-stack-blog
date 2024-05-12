@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import './styles/app.scss';
-
+import '@stripe/stripe-js'
 // ESBuild Hot Reload for dev environment only
 if (process.env.NODE_ENV === 'development') {
 	new EventSource('/esbuild').addEventListener('change', () => location.reload());

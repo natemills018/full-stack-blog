@@ -3,6 +3,7 @@ import authorsRouter from './authors';
 import blogsRouter from './blogs';
 import tagsRouter from './tags';
 import contactRouter from './contact';
+import donateRouter from './donate';
 
 
 
@@ -12,6 +13,8 @@ const router = Router();
 router.use('/contact', contactRouter);
 
 router.use('/authors', authorsRouter);
+
+router.use('/donate', donateRouter);
 
 router.use('/blogs', blogsRouter);
 

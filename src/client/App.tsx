@@ -10,6 +10,11 @@ import Update from './views/Update';
 import EditBlog from './components/editBlog';
 import Add from './components/addBlog';
 import Contact from './views/Contact';
+import Donate from './views/Donate';
+import Thanks from './views/Thanks';
+
+import './styles/app.scss';
+
 // import NavBar from './components/NavBar';
 
 
@@ -30,6 +35,7 @@ const App = (props: AppProps) => {
 				<Link to='/' className='btn btn-outline btn-primary m-3'>Home</Link>
 				<Link to='/authors' className='btn btn-outline btn-light m-3'>Authors</Link>
 				<Link to='/blogs' className='btn btn-outline btn-secondary m-3'>Blogs</Link>
+				<Link to='/donate' className='btn btn-outline btn-secondary m-3'>Donate</Link>
 				{/* <Link to='/update' className='btn btn-outline btn-success m-3'>Update Blog</Link> */}
 				<Link to='/contact' className='btn btn-outline btn-secondary m-3'>Contact Us!</Link>
 				<Link to='/blogs/new' className='btn btn-outline btn-danger m-3'>Add Blog</Link>
@@ -44,6 +50,8 @@ const App = (props: AppProps) => {
 				<Route path='/updateblog' element={<EditBlog />} />
 				<Route path='/blogs/new' element={<Add />} />
 				<Route path='/contact' element={<Contact />} />
+				<Route path='/donate' element={<Donate />} />
+				<Route path='/thank-you' element={<Thanks />} />
 
 
 
