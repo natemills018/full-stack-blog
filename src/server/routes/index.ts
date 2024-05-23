@@ -4,11 +4,17 @@ import blogsRouter from './blogs';
 import tagsRouter from './tags';
 import contactRouter from './contact';
 import donateRouter from './donate';
+import apiRouter from './api';
+import authRouter from './auth';
 
 
 
 // our APi Router
 const router = Router();
+
+router.use('/api', apiRouter);
+
+router.use('/auth', authRouter);
 
 router.use('/contact', contactRouter);
 

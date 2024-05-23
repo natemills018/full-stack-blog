@@ -8,7 +8,9 @@ export interface IAuthorsRow extends RowDataPacket {
         created_at: number
 }
 
-
+export function find(column: string, value: string) {
+    return SelectQuery<IAuthorsRow>('SELECT * FROM authors WHERE ?? = ?;', [column, value]);
+}
 export function getAll() {
     return SelectQuery<IAuthorsRow>('SELECT * FROM authors;');
 }
