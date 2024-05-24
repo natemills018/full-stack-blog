@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
 
         if (userFound && compareHash(password, userFound.password)) {
             const token = jwt.sign({ userid: userFound.id, email: userFound.email, role: 1}, config.jwt.secret, { expiresIn: '15d'})
-            return res.json('login successful!')
+           res.json(token)
+           return;
         }
         res.status(401).json({message:'invalid credentials'})
            

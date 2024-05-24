@@ -6,11 +6,13 @@ import contactRouter from './contact';
 import donateRouter from './donate';
 import apiRouter from './api';
 import authRouter from './auth';
-
+import entryRouter from './entry';
 
 
 // our APi Router
 const router = Router();
+
+router.use('/entry', entryRouter);
 
 router.use('/api', apiRouter);
 
