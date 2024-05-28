@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import * as passport from 'passport';
 import apiRouter from './routes';
+import * as PassportLocal from  'passport-local';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -15,8 +17,13 @@ if (isProduction) {
 	app.use(express.static('public'));
 }
 
-// all our api routes
+// side effect import
 
+import './db/middlewares/passport-strategies.mw';
+
+// all our api routes
+app.use(passport.initialize())
+// app.use(passport.session())
 app.use(express.json())
 
 app.use('/api', apiRouter);
