@@ -1,6 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import config from '../config';
 import { Router } from 'express';
+import passport, { session } from 'passport';
+import { ReqUser } from '../types';
 
 // To use the javascript webtoken, it's smart to also add the config file so that you can have access to the secret key
 
@@ -11,9 +13,8 @@ import { Router } from 'express';
 const router = Router();
 
 
-router.get('/', (req, res) => {
+router.get('/', passport.authenticate('jwt',{session: false}), (req: ReqUser, res) => {
     // no token? no go!
-
     try {
         
         // if() {
@@ -30,7 +31,7 @@ router.get('/', (req, res) => {
         // console.log(payload);
 
         // res.json({ message: `Did it work?${payload.email}`})
-        res.json('Please work!');
+        res.json({message: `Please come again ${req.user?.email}`});
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: 'Your code really sucks!'})

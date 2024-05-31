@@ -37,15 +37,15 @@ router.get('/', async (req, res) => {
 // Update the post and the put requests for this route, according the blogs route
 
 
-router.post('/', async (req, res) => {
-    try {
-        const newAuthor = req.body;
-        const result = await db.authors.insert(newAuthor.name, newAuthor.email);
-        res.json({ message: 'New Author added', id: result.insertId});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Internal Server Error', error})
-    }
-})
+// router.post('/', async (req, res) => {
+//     try {
+//         const newAuthor = req.body;
+//         const result = await db.authors.insert(newAuthor.name, newAuthor.email);
+//         res.json({ message: 'New Author added', id: result.insertId});
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ message: 'Internal Server Error', error})
+//     }
+// })
 
 export default router;
