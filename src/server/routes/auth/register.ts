@@ -13,16 +13,12 @@ router.post('/', async (req, res) => {
     try {
         newAuthor.password = generateHash(newAuthor.password)
         const result = await db.authors.insert(newAuthor)
-
-        result.insertId
-        // const token = jwt.sign(
-        //     { userid: result.insertId, email: newAuthor.email, role: 1},
-        //      config.jwt.secret, 
-        //     { expiresIn: '15d'})
-        //    res.json(token)
-    //        return;
+        const token = jwt.sign(
+            { userid: result.insertId, email: newAuthor.email, role: 1},
+             config.jwt.secret, 
+            { expiresIn: '15d'})
+           res.json(token)
         //check for users email
-        res.json(newAuthor);
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'this code sucks'})

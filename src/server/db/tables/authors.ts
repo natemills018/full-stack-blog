@@ -21,7 +21,7 @@ export function find(column: string, value: string) {
 
 export function insert(newAuthor: { email: string, password: string}) {
     return ModifyQuery<MysqlResponse>(
-        'INSERT INTO users SET ?', newAuthor
+        'INSERT INTO authors SET ?', newAuthor
     )
 }
 
