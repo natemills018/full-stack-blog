@@ -2,10 +2,10 @@ import { SelectQuery, ModifyQuery } from "../queryUtils";
 import type { RowDataPacket } from "mysql2";
 
 export interface IBlogTagsRow extends RowDataPacket {
-        id: number,
-        title: string,
-        content: string,
-        author_id: number
+        id?: number,
+        title?: string,
+        content?: string,
+        author_id?: number
 }
 
 // update this with the correct interface parameters sso that youj dont run into any other errors. 

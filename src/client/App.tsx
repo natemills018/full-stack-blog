@@ -12,8 +12,10 @@ import Add from './components/addBlog';
 import Contact from './views/Contact';
 import Donate from './views/Donate';
 import Thanks from './views/Thanks';
+import Login from './views/Login';
 
 import './styles/app.scss';
+
 
 // import NavBar from './components/NavBar';
 
@@ -52,6 +54,7 @@ const App = (props: AppProps) => {
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/donate' element={<Donate />} />
 				<Route path='/thank-you' element={<Thanks />} />
+				<Route path='/login' element={<Login />} />
 
 
 
