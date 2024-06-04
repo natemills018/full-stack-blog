@@ -14,6 +14,8 @@ const Login = (props: LoginProps) => {
 
         const TOKEN = localStorage.getItem('token');
 
+        console.log(TOKEN)
+
 
         fetch('/api/entry', {
             method: 'GET',

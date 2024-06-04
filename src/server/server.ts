@@ -19,11 +19,12 @@ if (isProduction) {
 
 // side effect import
 
-import './db/middlewares/passport-strategies.mw';
+import {configurPassword} from './db/middlewares/passport-strategies.mw';
 
 // all our api routes
-app.use(passport.initialize())
+// app.use(passport.initialize())
 // app.use(passport.session())
+configurPassword(app);
 app.use(express.json())
 
 app.use('/api', apiRouter);

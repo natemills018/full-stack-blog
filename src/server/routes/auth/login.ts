@@ -4,15 +4,22 @@ import config from '../../config';
 import passport from 'passport';
 import db from '../../db';
 import { compareHash } from '../../db/passwords';
+import { ReqUser } from '../../db/types';
 
 const router = Router();
 
-router.post('/', passport.authenticate('local',{session: false}), async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    try {
+router.post('/', passport.authenticate('local', {session: false}), async (req: ReqUser, res) => {
+    // const email = req.body.email;
+    // const password = req.body.password;
 
-        console.log(req.user)
+    // intellicence thought that there also needed to be a question mark in line when creating a token.
+    try {
+        const token = jwt.sign(
+            { userid: req.user?.id, email: req.user?.email, role: 1},
+             config.jwt.secret, 
+            { expiresIn: '15d'})
+           res.json(token)
+           return;
         //check for users email
         // const [userFound] = await db.authors.find('email',email);
         // // check if user's email is Found
@@ -20,13 +27,9 @@ router.post('/', passport.authenticate('local',{session: false}), async (req, re
         // console.log(userFound);
 
         // if (userFound && compareHash(password, userFound.password)) {
-        //     const token = jwt.sign({ userid: userFound.id, email: userFound.email, role: 1}, config.jwt.secret, { expiresIn: '15d'})
-        //    res.json(token)
-        //    return;
+        
         // }
         // res.status(401).json({message:'invalid credentials'})
-           
-        res.json('Ayyoo');
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'this code sucks'})
