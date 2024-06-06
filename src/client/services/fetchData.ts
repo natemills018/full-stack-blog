@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 const URL_PREFACE = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 
+export const TOKEN_KEY = 'token';
+
 
 async function fetchieHelper<T = any>(url: string, method: string = "GET", rawData?: any): Promise<any> {
     const headers: HeadersInit = {}
@@ -8,6 +10,9 @@ async function fetchieHelper<T = any>(url: string, method: string = "GET", rawDa
         headers,
         method
     };
+
+    const TOKEN = localStorage.getItem(TOKEN_KEY);
+
     if(method === "POST" || method === "PUT") {
         headers["Content-Type"] = "application/json";
         options["body"] = JSON.stringify(rawData);

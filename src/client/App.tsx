@@ -12,9 +12,10 @@ import Add from './components/addBlog';
 import Contact from './views/Contact';
 import Donate from './views/Donate';
 import Thanks from './views/Thanks';
-import Login from './views/Login';
+import Entry from './views/Entry';
 
 import './styles/app.scss';
+import PrivateRoute from './components/PrivateRoute';
 
 
 // import NavBar from './components/NavBar';
@@ -54,11 +55,9 @@ const App = (props: AppProps) => {
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/donate' element={<Donate />} />
 				<Route path='/thank-you' element={<Thanks />} />
-				<Route path='/login' element={<Login />} />
-
-
-
-
+				<Route path='/entry' element={<PrivateRoute> <Entry /></PrivateRoute>} />
+				<Route path='/login' element={<Entry/>}/>
+				
 			</Routes>
 		</BrowserRouter>
 
