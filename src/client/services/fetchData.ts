@@ -13,6 +13,10 @@ async function fetchieHelper<T = any>(url: string, method: string = "GET", rawDa
 
     const TOKEN = localStorage.getItem(TOKEN_KEY);
 
+    if(TOKEN) {
+        headers['Authorization'] = `Bearer ${TOKEN}`
+    }
+
     if(method === "POST" || method === "PUT") {
         headers["Content-Type"] = "application/json";
         options["body"] = JSON.stringify(rawData);

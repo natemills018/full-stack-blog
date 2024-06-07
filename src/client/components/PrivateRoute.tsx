@@ -8,51 +8,60 @@ import { Route } from 'react-router-dom';
 
 
 
-// interface PrivateRouteProps {
-//     path: string;
-//     exact?: boolean;
-//     children: React.ReactNode;
-// }
+interface PrivateRouteProps {
+    path: string;
+    exact?: boolean;
+    children: React.ReactNode;
+}
 
-// const PrivateRoute = ({children, ...rest}: PrivateRouteProps) => {
+const PrivateRoute = ({children, ...rest}: PrivateRouteProps) => {
+    const [hasChecked, setHasChecked] = useState(false);
+    const [isGood, setIsGood] = useState(false);
+    
+    useEffect(() => {
+        GET('/api/auth/validate')
+            .then(()=> setIsGood(true))
+            .finally(()=> setHasChecked(true))
+    })
+
+    if(!hasChecked) return <></>
+
+    if(!TOKEN_KEY) {
+        return (
+            <Navigate to='/login' />
+        )
+    } else  {
+
+        return (
+            <Route {... rest}>{children}</Route>
+        )
+    }
+
+// const PrivateRoute = ({children}: { children: React.ReactNode}) => {
 //     const nav = useNavigate();
-//     const TOKEN = localStorage.getItem('token');
+//     const TOKEN = localStorage.getItem(TOKEN_KEY);
 
 //     if(!TOKEN) {
 //         return (
-//         redirect('/api/login')
+//             <Navigate to={'/'} />
 //         )
 //     } else  {
 //         return (
-//             <Route {... rest}>{children}</Route>
+//             <main className='container mt-5'>
+//     //         <section className='row justify-content-center'>
+//     //             <div className='col-12 col-md-6'>
+//     //                 <div className='card shadow'>
+//     //                     <div className='card-body'>
+//     //                         <div>
+//                                {children}
+//     //                         </div>
+//     //                     </div>
+//     //                 </div>
+//     //             </div>
+//     //         </section>
+//     //     </main>
 //         )
 //     }
-
-const PrivateRoute = ({children}: { children: React.ReactNode}) => {
-    const nav = useNavigate();
-    const TOKEN = localStorage.getItem(TOKEN_KEY);
-
-    if(!TOKEN) {
-        return (
-            <Navigate to={'/'} />
-        )
-    } else  {
-        return (
-            <main className='container mt-5'>
-    //         <section className='row justify-content-center'>
-    //             <div className='col-12 col-md-6'>
-    //                 <div className='card shadow'>
-    //                     <div className='card-body'>
-    //                         <div>
-                               {children}
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </section>
-    //     </main>
-        )
-    }
 
 
 

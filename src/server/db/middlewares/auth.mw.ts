@@ -1,7 +1,23 @@
-// import passport from "passport";
+import passport from "passport";
+import { Request, Response, NextFunction } from "express";
 
+// express middleware
+export function tokenCheck (req: Request, res: Response, next: NextFunction) {
+    passport.authenticate('jwt', (err: any, user: any, info: any ) => {
+        if(err) {
+            return next(err);
+        }
 
-// // express middleware
-// export function tokenCheck (req, res, next){
+        if(!user) {
+            return res.status(401).json({ message: 'redirct to log in page'})
+        }
 
-// }
+        if(info) {
+            return res.status(401).json({ message: info.message})
+        }
+
+        req.user = user;
+
+        next();
+    })(req, res, next)
+}

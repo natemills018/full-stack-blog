@@ -16,6 +16,7 @@ import Entry from './views/Entry';
 
 import './styles/app.scss';
 import PrivateRoute from './components/PrivateRoute';
+import Login from './views/Login';
 
 
 // import NavBar from './components/NavBar';
@@ -42,6 +43,8 @@ const App = (props: AppProps) => {
 				{/* <Link to='/update' className='btn btn-outline btn-success m-3'>Update Blog</Link> */}
 				<Link to='/contact' className='btn btn-outline btn-secondary m-3'>Contact Us!</Link>
 				<Link to='/blogs/new' className='btn btn-outline btn-danger m-3'>Add Blog</Link>
+				<Link to='/login' className='btn btn-outline btn-danger m-3'>Login!</Link>
+				
 			</div>
 
 			<Routes>
@@ -55,8 +58,8 @@ const App = (props: AppProps) => {
 				<Route path='/contact' element={<Contact />} />
 				<Route path='/donate' element={<Donate />} />
 				<Route path='/thank-you' element={<Thanks />} />
-				<Route path='/entry' element={<PrivateRoute> <Entry /></PrivateRoute>} />
-				<Route path='/login' element={<Entry/>}/>
+				<Route path='/entry' element={<PrivateRoute path='/entry'> <Entry /></PrivateRoute>} />
+				<Route path='/login' element={<Login/>}/>
 				
 			</Routes>
 		</BrowserRouter>
