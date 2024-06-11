@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
-import config from '../config';
+import config from '../../config';
 import { Router } from 'express';
 import passport, { session } from 'passport';
-import { ReqUser } from '../db/types';
+import { ReqUser } from '../../db/types';
 
 // To use the javascript webtoken, it's smart to also add the config file so that you can have access to the secret key
 

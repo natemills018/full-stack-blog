@@ -24,8 +24,9 @@ async function fetchieHelper<T = any>(url: string, method: string = "GET", rawDa
 
     return new Promise(async (resolve) => {
         try {
-            const res = await fetch(URL_PREFACE + url);
+            const res = await fetch(URL_PREFACE + url, options);
             const data = await res.json();
+            console.log(data)
             if (res.ok) {
                 resolve(data);
             } else {

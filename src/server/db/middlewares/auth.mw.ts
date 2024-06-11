@@ -9,7 +9,7 @@ export function tokenCheck (req: Request, res: Response, next: NextFunction) {
         }
 
         if(!user) {
-            return res.status(401).json({ message: 'redirct to log in page'})
+            return res.status(401).json({ message: 'redirect to log in page'})
         }
 
         if(info) {

@@ -1,5 +1,10 @@
 import { Router } from 'express';
-
+import authorsRouter from './authors';
+import blogsRouter from './blogs';
+import tagsRouter from './tags';
+import contactRouter from './contact';
+import donateRouter from './donate';
+import entryRouter from './entry';
 
 const router = Router();
 
@@ -10,5 +15,17 @@ const router = Router();
 
 // GET // api/clients/123
 
+
+router.use('/entry', entryRouter);
+
+router.use('/contact', contactRouter);
+
+router.use('/authors', authorsRouter);
+
+router.use('/donate', donateRouter);
+
+router.use('/blogs', blogsRouter);
+
+router.use('/tags', tagsRouter);
 
 export default router;

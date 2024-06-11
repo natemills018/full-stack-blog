@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import * as passport from 'passport';
-import apiRouter from './routes';
+import Routes from './routes';
 import * as PassportLocal from  'passport-local';
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -27,7 +27,7 @@ import {configurPassword} from './db/middlewares/passport-strategies.mw';
 configurPassword(app);
 app.use(express.json())
 
-app.use('/api', apiRouter);
+app.use(Routes);
 
 // 404 fallback for client side routing
 if (isProduction) {

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import type { IAuthorsRow } from '../types';
+import { GET } from '../services/fetchData';
 
 interface AuthorsProps {
 
@@ -10,8 +11,7 @@ const Authors = (props: AuthorsProps) => {
     const [list, setList] = useState<IAuthorsRow[]>([]);
     
     useEffect(() => {
-        fetch("http://localhost:3000/api/authors")
-        .then(res => res.json())
+        GET('/api/authors')
         .then(list => setList(list));
     }, [])
 

@@ -25,3 +25,5 @@ export function getAll() {
 // export function insertBlogPost(title: string, content: string) {
 //     return ModifyQuery('INSERT INTO blogs (title,content) VALUE (?,?);',[title,content])
 // }
+
+
